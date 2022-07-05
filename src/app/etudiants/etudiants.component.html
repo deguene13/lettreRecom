@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="panel panel-succes">
+      
+      
+        
+      <div class="card-body">
+        
+            <div class="container mt-3">
+            
+            <button type="button" class="btn btn-success" (click)="onGetEtudiants()">LISTE DES LETTRES</button><br/>
+            <br/>
+            
+        </div>
+        <div class="card text-center">
+          <div class="card-header">
+            La liste des lettres de recommandation
+          </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" *ngIf="etudiants">
+                <thead>
+            
+                    <tr><th>Numéro Etudiant</th><th>Prénom et Nom</th> <th>Niveau</th><th>Départemet</th><th>UFR</th> <th>Date Naissance</th><th>Téléphone</th><th>Email</th><th>Date Lettre</th><th>Entreprise</th> </tr>
+            
+                </thead>
+                <tbody *ngFor="let etudiant of etudiants._embedded.etudiants">
+                  
+                  <tr> 
+                    <td>{{etudiant.numeroEtud}}</td>
+                    <td>{{etudiant.prenomNom}}</td>
+                    <td>{{etudiant.niveau}}</td>
+                    <td>{{etudiant.departement}}</td>
+                    <td>{{etudiant.ufr}}</td>
+                    <td>{{etudiant.dateNais | date:'dd/MM/yyyy'}}</td>
+                    <td>{{etudiant.telephone}}</td>
+                    <td>{{etudiant.email}}</td>
+                    <td>{{etudiant.dateLet| date:'dd/MM/yyyy'}}</td>
+                    <td>{{etudiant.nomEntrep}}</td>
+                    <td><a class="btn btn-primary" (click)="onAffichEtudiant(etudiant)">Afficher la Lettre</a></td>
+                    
+                    
+                  </tr>
+                </tbody>
+              </table>
+             <!-- <ul *ngIf="pages"  class="nav nav-pills nav-fill" >
+                <li *ngFor="let p of pages; let i=index">
+                  <a (click)="onPageEtudiant(i)">{{i}}</a>
+                </li>
+              </ul>-->
+            </div>
+        </div>
+    </div>
+    </div>
+  </div>
+
+</div>

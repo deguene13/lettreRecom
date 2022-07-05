@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap </title>
+ 
+</head>
+<body>
+  <form  (ngSubmit)=" getEtudianteByNumero(f.value)">
+    <div class="row" >
+        
+      <label for="numero">Entrer votre numéro:</label>
+    
+     <div class="col">
+      <input type="text"  name="numero" ngModel class="form-control">
+     </div>
+     <div class="col">
+      <button type="submit" class="btn btn-success"> valider</button>
+     </div>
+    <br/>
+
+  </div>
+  </form>
+
+<div class="container mt-3">
+
+  
+  <p>LISTE DES ETUDIANTES</p> 
+           
+  <div class="table-responsive">
+    <table class="table table-bordered" >
+    <thead>
+
+        <tr><th>Id</th><th>Prenom et Nom</th> <th>Numero</th><th>Date de Naissance</th><th>Télephone</th> <th>Mail</th><th> Niveau</th><th>Filiére</th><th>UFR</th><th>Année</th> <th>Nom Entreprise</th><th>Adress Entreprise</th><th>Representant Entreprise</th><th>Qualité</th><th>Tel Entreprise</th> <th>Mail Entreprise</th></tr>
+
+      </thead>
+      <tbody *ngFor="let etud of etudiantes">
+      <tr> 
+        <td>{{etud.id}}</td>
+        <td>{{etud.prenomNon}}</td>
+        <td>{{etud.numero}}</td>
+        <td>{{etud.dateN}}</td>
+        <td>{{etud.teleph}}</td>
+        <td>{{etud.mail}}</td>
+        <td>{{etud.niveau}}</td> 
+        <td>{{etud.filiere}}</td>
+        <td>{{etud.ufr}}</td>
+        <td>{{etud.annee}}</td>
+        <td *ngIf="etud.entreprise!=null">{{etud.entreprise.nom}}</td>
+        <td *ngIf="etud.entreprise===null"></td>
+        <td *ngIf="etud.entreprise!=null">{{etud.entreprise.adress}}</td>
+        <td *ngIf="etud.entreprise===null"></td>
+        <td *ngIf="etud.entreprise!=null">{{etud.entreprise.representant}}</td>
+        <td *ngIf="etud.entreprise===null"></td>
+        <td *ngIf="etud.entreprise!=null">{{etud.entreprise.qualite}}</td>
+        <td *ngIf="etud.entreprise===null"></td>
+        <td *ngIf="etud.entreprise!=null">{{etud.entreprise.telephone}}</td>
+        <td *ngIf="etud.entreprise===null"></td>
+        <td *ngIf="etud.entreprise!=null">{{etud.entreprise.mailS}}</td>
+        <td *ngIf="etud.entreprise===null"></td>
+
+        
+      </tr>
+     
+      
+
+    </tbody>
+  </table>
+</div>
+</div>
+</body>
+</html>
+
+
+
+<div class="container">
+    <div class="panel panel-succes">
+      <div class="panel-heading"> ajout Etudiante</div>
+       <div class="card-body" >
+        <form #f="ngForm"  >
+         <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="id">ID:</label>
+                <input [(ngModel)]="etudiante.id"  type="text" name="id"  class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="prenomNon"> prenomNon:</label>
+                <input [(ngModel)]="etudiante.prenomNon" type="text" name="prenomNon"  class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="numero"> numero:</label>
+                <input [(ngModel)]="etudiante.numero" type="text" name="numero"  class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="dateN"> dateN:</label>
+                <input  [(ngModel)]="etudiante.dateN" type="date" name="dateN" class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for=" teleph">  teleph:</label>
+                <input  [(ngModel)]="etudiante. teleph" type="text" name=" teleph" class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="mail"> mail:</label>
+                <input  [(ngModel)]="etudiante.mail" type="text" name="mail"    class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="niveau"> niveau:</label>
+                <input  [(ngModel)]="etudiante.niveau" type="text"  name="niveau"   class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="filiere"> filiere:</label>
+                <input  [(ngModel)]="etudiante.filiere" type="text"  name="filiere" class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="ufr"> ufr:</label>
+                <input  [(ngModel)]="etudiante.ufr" type="text"  name="ufr" class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="annee"> annee:</label>
+                <input  [(ngModel)]="etudiante.annee" type="date"  name="annee" class="form-control">
+              </div>
+
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="nom"> Nom:</label>
+                <input [(ngModel)]="entreprise.nom" type="text" name="nom"  class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="entreprise"> entrep:</label>
+                <select name="entreprise" id="entreprise" class="form-control" [(ngModel)]="SelectedEntreprise">
+                    <option *ngFor="let entrep of entreprises" [ngValue]="entrep" >
+                        {{entrep.nom}}
+                        {{entrep.adress}}
+                        {{entrep.representant}}
+                        {{entrep.qualite}}
+                        {{entrep.telephone}}
+                         {{entrep.mailS}}>
+                    </option>
+
+                </select>
+              </div>
+              
+             
+              <br/>
+               <button type="submit" class="btn btn-success" (click)="save()"> Ajouter</button>
+  
+       </form>
+       </div>
+       
+    </div>
+  </div>
+  
+  
+

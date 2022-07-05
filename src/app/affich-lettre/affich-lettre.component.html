@@ -1,0 +1,58 @@
+<div class="container">
+    <div class="panel panel-succes">
+       <div class="card-body" *ngIf="currentEtudiant">
+        <form #f="ngForm" (ngSubmit)="onAffiEtudiant(f.value)">
+            <div>
+                <img [src]="myimage" alt=""  style="width:250px;">
+              </div> <br/>
+              <p style="text-align:right;"> <b> 
+                   Ziguinchor,le
+                  <input readonly style="border: hidden; border: 0 " type="date "  [(ngModel)]= "currentEtudiant.dateLet"  name="dateLet" ><br/></b>
+              </p> 
+                
+              <p style="text-align:right ;"> <br/> <b>
+                  Monsieur le Chef 
+                  <input readonly style="border: hidden; border: 0 ;font-weight: bold;" type="text"  [(ngModel)]= "currentEtudiant.nomEntrep"  name="nomEntrep"size="40" ><br/></b> 
+              </p><br/>
+              <p style="text-align:center;"> <b> <u>Objet</u>:&nbsp; Lettre de recommandation pour un poste de stage </b></p>
+              <p > <b>Monsieur, </b></p>
+              <p  style="text-align:justify;">
+                &nbsp;&nbsp;&nbsp;Par la présent lettre, je viens appuyer la demande de stage de
+                  <input readonly style="border: hidden; border: 0 ;font-weight: bold;" type="text"  [(ngModel)]= "currentEtudiant.prenomNom"  name="prenomNom" size="12">,
+               
+                  étudiant inscrit en &nbsp;
+                  <input readonly style="border: hidden; border: 0 ;font-weight: bold;" type="text"  [(ngModel)]= "currentEtudiant.niveau"  name="niveau" size="4">
+               
+                  au <b>Département</b>&nbsp;
+                  <input readonly style="border: hidden; border: 0 ;font-weight: bold;" type="text"  [(ngModel)]= "currentEtudiant.departement"  name="departement" size="11">
+                
+                  de l’université Assane Seck de Ziguinchor, <b> UFR</b>&nbsp;
+                  <input readonly style="border: hidden; border: 0 ;font-weight: bold;" type="text"  [(ngModel)]= "currentEtudiant.ufr"  name="ufr" size="26"> .
+             </p><br/>
+             <p  style="text-align:justify;"> &nbsp;&nbsp;L’université Assane Seck de  Ziguinchor place le stage au cœur du dispositif de formation de l’étudiant afin de valoriser
+              son savoir-faire par la professionnalisation des filières. Le choix porté sur votre structure se justifie par sa position 
+              dans son domaine, par le lien étroit  qui existe entre vos activités, le sujet de l’étudiant et le contenu de nos filières.</p>
+             <p  style="text-align:justify;"> &nbsp;&nbsp;Je vous s’aurai gré de bien vouloir  l’accueillir et l’encadrer pour  le bon déroulement de sa formation et je reste disponible
+                à  vous fournir une convention de stage.</p>
+             <p  style="text-align:justify;"> &nbsp;&nbsp;Etant conscient de votre engagement a œuvré pour la bonne formation des jeunes en général et des étudiants en particulier, 
+                je me permets de nourrir l’espoir que la présente demande trouvera une suite favorable et vous prie de bien vouloir agréer
+                l’expression de mes sentiments respectueux.</p>
+                <br/>
+                <br/>
+             <p style="text-align:right " ><b> Le  Directeur de l’Insertion des Stages et <br/> Relation avec le Monde Professionnel </b></p><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+              
+                
+            <button class="btn btn-success" (click)="generatePDF()">Imprimer</button>
+            
+             
+             
+
+       </form>
+       
+       </div>
+       
+    </div>
+</div>
+
+
+

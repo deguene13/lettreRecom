@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="panel panel-succes">
+       <div class="card-body">
+        <form #f="ngForm" (ngSubmit)="onChercher(f.value)">
+          <div class="row" >
+        
+            <label for="numeroEtud">Entrer votre numéro d'étudiant:</label>
+          
+           <div class="col">
+            <input type="text"   name="numeroEtud" ngModel class="form-control">
+           </div>
+           <div class="col">
+            <button type="submit" class="btn btn-success"> valider</button>
+           </div>
+          
+        </div>
+     
+
+        </form>
+            
+       
+          
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" *ngIf="etudiants">
+                <thead>
+            
+                    <tr><th>Numéro Etudiant</th><th>Prénom et Nom</th> <th>Niveau</th><th>Départemet</th><th>UFR</th> <th>Date Naissance</th><th>Téléphone</th><th>Email</th> </tr>
+            
+                </thead>
+                <tbody *ngFor="let etudiant of etudiants._embedded.etudiants">
+                  
+                  <tr> 
+                    <td>{{etudiant.numeroEtud}}</td>
+                    <td>{{etudiant.prenomNom}}</td>
+                    <td>{{etudiant.niveau}}</td>
+                    <td>{{etudiant.departement}}</td>
+                    <td>{{etudiant.ufr}}</td>
+                    <td>{{etudiant.dateNais | date:'dd/MM/yyyy'}}</td>
+                    <td>{{etudiant.telephone}}</td>
+                    <td>{{etudiant.email}}</td>
+                   <td><a class="btn btn-primary" (click)="onDemandeEtudiant(etudiant)">Créer la Lettre</a></td>
+
+                  </tr>
+                </tbody>
+              </table>
+             
+            </div>
+        </div>
+    </div>
+    </div>
+  
+
+</div>

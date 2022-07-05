@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="panel panel-succes">
+       <div class="card-body">
+        <form #f="ngForm" (ngSubmit)="onSaveEtudiant(f.value)">
+
+        
+            <div class="col-sm-2 col-md-2 col-lg-2">
+                <label for="numeroEtud">Numéro Etudiant:</label>
+                <input type="text" name="numeroEtud" ngModel class="form-control">
+              </div>
+              <div class="col-sm-2 col-md-2 col-lg-2">
+                <label for="prenomNom">Prénom et Nom:</label>
+                <input type="text" name="prenomNom" ngModel class="form-control">
+              </div>
+              <div class="col-sm-2 col-md-2 col-lg-2">
+                <label for="niveau"> Niveau:</label>
+                <input type="text" name="niveau" ngModel class="form-control">
+              </div>
+              <div class="col-sm-2 col-md-2 col-lg-2">
+                <label for="departement"> Dépatrtement:</label>
+                <input type="text" name="departement" ngModel class="form-control">
+              </div>
+              <div class="col-sm-2 col-md-2 col-lg-2">
+                <label for="ufr"> UFR:</label>
+                <input type="text" name="ufr"  ngModel  class="form-control">
+              </div>
+              <div class="col-sm-2 col-md-2 col-lg-2">
+                <label for="dateNais"> Date Naissance:</label>
+                <input type="date"  name="dateNais" ngModel  class="form-control">
+              </div>
+              <div class="col-sm-2 col-md-2 col-lg-2">
+                <label for="telephone"> Téléphone:</label>
+                <input type="text"  name="telephone" ngModel class="form-control">
+              </div>
+              <div class="col-sm-2 col-md-2 col-lg-2">
+                <label for="email">E-mail:</label>
+                <input type="text"  name="email" ngModel class="form-control"><br/>
+              </div>
+              <div class="col-sm-2 col-md-2 col-lg-2">
+                <label for="dateLet">date de la Lettre:</label>
+                <input type="date" name="dateLet" ngModel class="form-control"><br/>
+              </div>
+              <div class="col-sm-2 col-md-2 col-lg-2">
+                <label for="nomEntrep">Entreprise:</label>
+                <input type="text" name="nomEntrep"  ngModel class="form-control"><br/>
+              </div>
+               <button type="submit" class="btn btn-success"> valider</button>
+
+       </form>
+       </div>
+       
+    </div>
+</div>
+

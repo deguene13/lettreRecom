@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="panel panel-succes">
+      <div class="panel-heading"> la liste de la demande de lettre de recommandation</div>
+       <div class="card-body" *ngIf="currentEtudiant">
+        <form #f="ngForm" (ngSubmit)="onEnregistrerEtudiant(f.value)">
+           <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="numeroEtud">Numéro Etudiant:</label>
+                <input readonly type="text" name="numeroEtud" ngModel [(ngModel)]= "currentEtudiant.numeroEtud" class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="prenomNom">Prénom et Nom:</label>
+                <input readonly type="text" name="prenomNom" ngModel [(ngModel)]= "currentEtudiant.prenomNom" class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="niveau"> Niveau:</label>
+                <input readonly type="text" name="niveau" ngModel  [(ngModel)]= "currentEtudiant.niveau" class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="departement"> Dépatrtement:</label>
+                <input readonly type="text" name="departement" ngModel  [(ngModel)]= "currentEtudiant.departement" class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="ufr"> UFR:</label>
+                <input readonly type="text" name="ufr"  ngModel [(ngModel)]= "currentEtudiant.ufr"  class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="dateNais"> Date Naissance:</label>
+                <input readonly type="date"  name="dateNais" ngModel [(ngModel)]= "currentEtudiant.dateNais"  class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="telephone"> Téléphone:</label>
+                <input readonly type="text"  name="telephone" ngModel [(ngModel)]= "currentEtudiant.telephone" class="form-control">
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="email">E-mail:</label>
+                <input readonly type="text"  name="email" ngModel  [(ngModel)]= "currentEtudiant.email" class="form-control"><br/>
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="dateLet">date de la Lettre:</label>
+                <input type="date" name="dateLet" ngModel [(ngModel)]= "currentEtudiant.dateLet" class="form-control"><br/>
+              </div>
+             
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <label for="nomEntrep" class="form-label">Entreprise:</label>
+                <input  list="browsers" name="nomEntrep" id="nomEntrep"  ngModel  [(ngModel)]= "currentEtudiant.nomEntrep" class="form-control" >
+                <datalist id="browsers">
+                  <option value="d'Agence Ecobank">
+                  <option value="d'Agence ARD Ziguinchor">
+                  <option value="Chrome">
+                  <option value="aaaaaaaaa">
+                  <option value="bbbbbbbbbbbbb">
+                </datalist>
+              </div><br/>
+               <button type="submit" class="btn btn-success"> enregistrer</button>
+
+       </form>
+       </div>
+       
+    </div>
+</div>
+
+

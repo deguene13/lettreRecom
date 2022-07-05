@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap </title>
+ 
+</head>
+<body>
+
+<div class="container mt-3">
+
+  
+  <p>LISTE </p> 
+           
+  <div class="table-responsive">
+    <table class="table table-bordered" >
+    <thead>
+
+        <tr><th>Id</th><th>Nom</th> <th>Adress</th><th>Representant</th><th>Qualite</th> <th> Tel</th><th>Mail</th><th>Actio</th> </tr>
+
+      </thead>
+      <tbody *ngFor="let entrep of entreprises">
+      <tr> 
+        <td>{{entrep.id}}</td>
+        <td>{{entrep.nom}}</td>
+        <td>{{entrep.adress}}</td>
+        <td>{{entrep.representant}}</td>
+        <td>{{entrep.qualite}}</td>
+        <td>{{entrep.telephone}}</td>
+        <td>{{entrep.mailS}}</td>
+        <td>{{entrep.error}}</td>   
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</body>
+</html>
+
+
+
+<div class="container">
+  <div class="panel panel-succes">
+    <div class="panel-heading"> ajout Entreprise</div>
+     <div class="card-body" >
+      <form #f="ngForm" >
+         <div class="col-sm-4 col-md-4 col-lg-4">
+              <label for="id">ID:</label>
+              <input [(ngModel)]="entreprise.id"  type="text" name="id"  class="form-control">
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+              <label for="nom"> Nom:</label>
+              <input [(ngModel)]="entreprise.nom" type="text" name="nom"  class="form-control">
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+              <label for="adress"> Adress:</label>
+              <input [(ngModel)]="entreprise.adress" type="text" name="adress"  class="form-control">
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+              <label for="representant"> Representant:</label>
+              <input  [(ngModel)]="entreprise.representant" type="text" name="representant" class="form-control">
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+              <label for="qualite"> Qualite:</label>
+              <input  [(ngModel)]="entreprise.qualite" type="text" name="qualite"    class="form-control">
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+              <label for="telephone"> Telephone:</label>
+              <input  [(ngModel)]="entreprise.telephone" type="text"  name="telephone"   class="form-control">
+            </div>
+            <div class="col-sm-4 col-md-4 col-lg-4">
+              <label for="mailS"> Mail:</label>
+              <input  [(ngModel)]="entreprise.mailS" type="text"  name="mailS" class="form-control">
+            </div>
+           
+            <br/>
+             <button type="submit" class="btn btn-success" (click)="save()"> Ajouter</button>
+
+     </form>
+     </div>
+     
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
