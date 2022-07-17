@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { EtudiantService } from '../services/etudiant.service';
+import { Etudiante } from '../model/etudiante.model'
 
 @Component({
   selector: 'app-rechercher-nume',
@@ -10,6 +11,8 @@ import { EtudiantService } from '../services/etudiant.service';
 export class RechercherNumeComponent implements OnInit {
   public etudiants:any;
   numeroEtud : string;
+  etudiante:  Etudiante = new Etudiante();
+  isFound: boolean = false;
 
   constructor(private etudiantService:EtudiantService,private router:Router) {
     
@@ -21,11 +24,16 @@ export class RechercherNumeComponent implements OnInit {
    // })
   //this.etudiants = [];
   }
-  onChercher (form:any){
-    this.etudiantService.getEtudiantsByNum(form.numeroEtud)
+  onChercher (){
+    this.etudiante = new Etudiante();
+    this.isFound = false;
+    console.log(this.numeroEtud)
+    this.etudiantService.getEtudiantByNum(this.numeroEtud)
     .subscribe(data=>{
-      this.etudiants=data;
-
+      this.etudiante=data;
+      if(this.etudiante != null && this.etudiante.id>0){
+        this.isFound = true;
+      }
     },err=>{
       console.log(err);
       

@@ -4,6 +4,7 @@ import { Entreprise } from '../model/entreprise.model';
 import { Etudiante } from '../model/etudiante.model';
 import { BaseService } from '../services/base.service ';
 import { EtudianteService } from '../services/etudiante.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-etudiante',
@@ -18,6 +19,7 @@ export class EtudianteComponent implements OnInit {
   etudiante:  Etudiante = new Etudiante();
   SelectedEntreprise: Entreprise;
   numero : string;
+  
 
   constructor( private etudianteService: EtudianteService, private router: Router, private baseService: BaseService) { }
 
@@ -45,31 +47,38 @@ export class EtudianteComponent implements OnInit {
   }
 
   save(){
+    console.log(this.entreprise);
     if (this.etudiante.prenomNon != null) {
-      this.etudiante.entreprise = this.SelectedEntreprise;
+      this.etudiante.entreprise = this.entreprise;
       this.etudianteService.save(this.etudiante).subscribe(
         result =>{
           this.etudiante = result;
-          if(this.etudiante.id > 0 ){
-           this.router.navigate(['/etudiante']);
+         // if(this.etudiante.id > 0 ){
+          
            this.getAll();
            this.etudiante = new Etudiante();
+           this.router.navigate(['/etudiante']);
            
-          }
+         // }
         }
       );
     }
   }
   
 
-  getEtudianteByNumero (form:any) {
+  getEtudianteByNumero () {
     this.etudiantes = []; 
-    this.etudianteService.getAllSduByNumero(form.numero).subscribe(
+    this.etudianteService.getEtudiantByNum(this.numero).subscribe(
       result => {
-        this.etudiantes = result;
+        this.etudiante = result;
+       this.etudiantes.push(this.etudiante);
       }
     );
   }
-  
 
+  // getEtudianteByNumero () {
+  //   this.getAll();
+  //   this.etudiantes = this.etudiantes.filter(e=>e.numero==this.numero);
+  // }
+  
 }

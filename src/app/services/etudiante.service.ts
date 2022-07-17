@@ -30,11 +30,10 @@ export class EtudianteService {
     });
 
   }
-  public getAllSduByNumero = ( numero: string) : Observable<Etudiante[]> => {
-    const urlSend = this.url + 'service/etudiante/getAllSduByName=' +numero;
-    return this.httpClient.get<Etudiante[]>(urlSend);
-		
-		
+  public getEtudiantByNum = ( numero: string) : Observable<Etudiante> => {
+    console.log("service");
+    const urlSend = this.url + 'service/etudiante/getEtudiantByNum/' +numero;
+    return this.httpClient.get<Etudiante>(urlSend);
 	}
 
  

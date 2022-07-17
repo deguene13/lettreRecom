@@ -30,10 +30,6 @@ import { EtudianteComponent } from './etudiante/etudiante.component';
     LoginComponent,
     EntrepriseComponent,
     EtudianteComponent
-    
-    
-    
-    
   ],
   imports: [
     BrowserModule,

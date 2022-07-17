@@ -21,12 +21,6 @@ const routes: Routes = [
   {path: 'entreprise', component: EntrepriseComponent},
   {path: 'etudiante', component: EtudianteComponent}
   
-  
- 
-
-  
-
-  
 ];
 
 @NgModule({

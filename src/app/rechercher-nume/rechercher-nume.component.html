@@ -1,13 +1,13 @@
 <div class="container">
     <div class="panel panel-succes">
        <div class="card-body">
-        <form #f="ngForm" (ngSubmit)="onChercher(f.value)">
+        <form #f="ngForm" (ngSubmit)="onChercher()">
           <div class="row" >
         
             <label for="numeroEtud">Entrer votre numéro d'étudiant:</label>
           
            <div class="col">
-            <input type="text"   name="numeroEtud" ngModel class="form-control">
+            <input type="text"   name="numeroEtud" [(ngModel)]="numeroEtud" class="form-control">
            </div>
            <div class="col">
             <button type="submit" class="btn btn-success"> valider</button>
@@ -22,23 +22,23 @@
           
         <div class="card-body">
             <div class="table-responsive">
-                <table class="table table-bordered" *ngIf="etudiants">
+                <table class="table table-bordered" *ngIf="isFound">
                 <thead>
             
                     <tr><th>Numéro Etudiant</th><th>Prénom et Nom</th> <th>Niveau</th><th>Départemet</th><th>UFR</th> <th>Date Naissance</th><th>Téléphone</th><th>Email</th> </tr>
             
                 </thead>
-                <tbody *ngFor="let etudiant of etudiants._embedded.etudiants">
+                <tbody>
                   
                   <tr> 
-                    <td>{{etudiant.numeroEtud}}</td>
-                    <td>{{etudiant.prenomNom}}</td>
-                    <td>{{etudiant.niveau}}</td>
-                    <td>{{etudiant.departement}}</td>
-                    <td>{{etudiant.ufr}}</td>
-                    <td>{{etudiant.dateNais | date:'dd/MM/yyyy'}}</td>
-                    <td>{{etudiant.telephone}}</td>
-                    <td>{{etudiant.email}}</td>
+                    <td>{{etudiante.numero}}</td>
+                    <td>{{etudiante.prenomNon}}</td>
+                    <td>{{etudiante.niveau}}</td>
+                    <td>{{etudiante.filiere}}</td>
+                    <td>{{etudiante.ufr}}</td>
+                    <td>{{etudiante.dateN | date:'dd/MM/yyyy'}}</td>
+                    <td>{{etudiante.teleph}}</td>
+                    <td>{{etudiante.mail}}</td>
                    <td><a class="btn btn-primary" (click)="onDemandeEtudiant(etudiant)">Créer la Lettre</a></td>
 
                   </tr>
